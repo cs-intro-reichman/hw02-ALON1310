@@ -8,7 +8,8 @@ import java.util.Random;
  *  Example usage: % java OneOfEachStats 1000 1
  */
 public class OneOfEachStats {
-	public static void main (String[] args) {
+	public static void main (String[] args) 
+	{
 		// Gets the two command-line arguments
 		int T = Integer.parseInt(args[0]);
 		int seed = Integer.parseInt(args[1]);
@@ -24,64 +25,65 @@ public class OneOfEachStats {
 		//// just like you had in the previous version, except that the 
 		//// randomization will be based on the given seed.
 		//// This is the only change that you have to do in the program.
-	int children2 = 0 ; 
+		int children2 = 0 ; 
 		int children3 = 0 ;
 		int children4 = 0 ;
 		int total = 0;
 
 
-		for (int i = 0 ; i < T ; i++){
+		for (int i = 0 ; i < T ; i++)
+		{
 
 
-			int a = generator.nextInt();
+			
 			boolean girl = false ;
 			boolean boy = false ; 
 			int count = 0 ;
 
 
-				while (girl==false || boy==false){
+				while (girl==false || boy==false)
+				{
+					double a = generator.nextDouble();
 
-						if (a<0.5)	{
-						count++ ;
-						boy = true;
-						total++;
-									}
-						if (0.5<=a){
-						count++;
-						girl = true ;
-						total++;
-										}
-
-						a = generator.nextInt(); 
-					}
-
-									if (count==2){
-									children2++;
-													}
-									if (count==3){
-										children3++;
-													}
-									if (4<=count){
-											children4++;
-														}
+						if (a<0.5)
+						{	
+							count++ ;
+							boy = true;
+							total++;
+						}
+									
+						else 
+						{
+							count++;
+							girl = true ;
+							total++;
+						}								
 								
-                                    }
-
-							double evrage = (double)total/T ;
-							System.out.println("Average: " + evrage + " children to get at least one of each gender.");
-							System.out.println("Number of families with 2 children: "+ children2);
-							System.out.println("Number of families with 3 children: "+ children3);						
-							System.out.println("Number of families with 4 or more children: "+ children4);
-							if ((children2>children3)&&(children2>children4)){
-								System.out.println("The most common number of children is 2.");
-							}
-							else if ((children3>children2)&&(children3>children4)){
-								System.out.println("The most common number of children is 3.");
-							}
-							else if ((children4>children2)&&(children4>children3)){
-								System.out.println("The most common number of children is 4.");
+                  }
+                  if (count==2)
+						children2++;
+					if (count==3)
+							children3++;
+					if (count>3)
+							children4++;
+														
+		}
+			double evrage = (double)total/T ;
+			System.out.println("Average: " + evrage + " children to get at least one of each gender.");
+			System.out.println("Number of families with 2 children: "+ children2);
+			System.out.println("Number of families with 3 children: "+ children3);						
+			System.out.println("Number of families with 4 or more children: "+ children4);
+			if (children2>children3&&children2>children4)
+			{
+				System.out.println("The most common number of children is 2.");
+			}
+				else if (children3>children2&&children3>children4)
+						System.out.println("The most common number of children is 3.");
+					else if (children4>children2&&children4>children3)
+							System.out.println("The most common number of children is 4.");
+							
 							
 
-	}	    
-	}
+		}	    
 }
+
