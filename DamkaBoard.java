@@ -11,11 +11,11 @@ public class DamkaBoard {
 				for (int c = 0; c<a;c++){
 
 				if (b%2==0){
-					System.out.print(" *");
+					System.out.print("* ");
 					
 					}
 					else {
-						System.out.print("* ");
+						System.out.print(" *");
 				
 				}
 				
